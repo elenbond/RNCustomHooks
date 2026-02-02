@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 const usePressAndHold = (callback?: () => void, delay: number = 1000) => {
   const [isHeld, setIsHeld] = useState(false);
@@ -6,29 +6,29 @@ const usePressAndHold = (callback?: () => void, delay: number = 1000) => {
 
   const onPressIn = () => {
     timeoutRef.current = setTimeout(() => {
-      setIsHeld(true)
+      setIsHeld(true);
       if (callback) {
-        callback()
+        callback();
       }
-    }, delay)
-  }
+    }, delay);
+  };
 
   const onPressOut = () => {
-    if (timeoutRef.current){
-      clearTimeout(timeoutRef.current)
-    }   
-    setIsHeld(false)
-  }
-
-  useEffect(()=> {
-    return()=>{
-      if(timeoutRef.current){
-        clearTimeout(timeoutRef.current)
-      }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
-  }, [])
+    setIsHeld(false);
+  };
 
-  return {onPressIn, onPressOut, isHeld}
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  return { onPressIn, onPressOut, isHeld };
 };
 
 export default usePressAndHold;
