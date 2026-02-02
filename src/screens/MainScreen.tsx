@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 
 import Countdown from "../components/Countdown";
 import Debounce from "../components/Debounce";
+import PressAndHold from "../components/PressAndHold";
 
 const MainScreen =({}) => {
 
@@ -10,6 +11,7 @@ const MainScreen =({}) => {
   <View style={styles.container}> 
     <Countdown />
     <Debounce />
+    <PressAndHold />
   </View>);
 
 }
