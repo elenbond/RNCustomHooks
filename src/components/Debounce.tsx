@@ -1,4 +1,4 @@
-import {useState, useEffect, use} from "react";
+import { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 
 import useDebounce from "../hooks/useDebounce";
@@ -9,7 +9,6 @@ const Debounce = ({}) => {
   const debouncedIncrement = useDebounce(() => {
     setValue((prev) => prev + 1);
   }, 2000)
-
 
   return (
     <>  
