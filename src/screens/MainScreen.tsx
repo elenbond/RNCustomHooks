@@ -1,27 +1,26 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 
-import Countdown from "../components/Countdown";
-import Debounce from "../components/Debounce";
-import PressAndHold from "../components/PressAndHold";
+import Countdown from '../components/Countdown';
+import Debounce from '../components/Debounce';
+import PressAndHold from '../components/PressAndHold';
 
-const MainScreen =({}) => {
-
+const MainScreen = ({}) => {
   return (
-  <View style={styles.container}> 
-    <Countdown />
-    <Debounce />
-    <PressAndHold />
-  </View>);
-
-}
+    <View style={styles.container}>
+      <Countdown />
+      <Debounce />
+      <PressAndHold />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center'
-  }
-}) 
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default MainScreen;

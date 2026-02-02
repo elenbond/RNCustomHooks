@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from 'react';
 
 const useCountdown = (initialSeconds: number) => {
   const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
@@ -28,6 +28,6 @@ const useCountdown = (initialSeconds: number) => {
   }, [isRunning, secondsLeft]);
 
   return { secondsLeft, isRunning, startPause, reset };
-}
+};
 
 export default useCountdown;

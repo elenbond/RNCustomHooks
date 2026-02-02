@@ -1,60 +1,72 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 
-import useCountdown from "../hooks/useCountdown";
+import useCountdown from '../hooks/useCountdown';
 
-const Countdown =({}) => {
-
+const Countdown = ({}) => {
   const { secondsLeft, isRunning, startPause, reset } = useCountdown(60);
 
   return (
-  <> 
-    <Text style={styles.title}>Countdown Timer</Text>
-    <View style={styles.countdownCircle}>
-      <Text style={styles.countdownText}>{secondsLeft}</Text>
-    </View>
-    <View style={styles.buttonsContainer}>
-      <View style={styles.button}>
-        <Text style={styles.buttonText} onPress={startPause}>{isRunning ? "pause" : "start"}</Text>
+    <>
+      <Text style={styles.title}>Countdown Timer</Text>
+      <View style={styles.container}>
+        <View style={styles.countdownCircle}>
+          <Text style={styles.countdownText}>{secondsLeft}</Text>
+        </View>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText} onPress={startPause}>
+              {isRunning ? 'pause' : 'start'}
+            </Text>
+          </View>
+          <View style={styles.button}>
+            <Text style={styles.buttonText} onPress={reset}>
+              Reset
+            </Text>
+          </View>
+        </View>
       </View>
-      <View style={styles.button}>
-        <Text style={styles.buttonText} onPress={reset}>Reset</Text>
-      </View>
-    </View>
-  </>);
-
-}
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
-  title:{
-    fontSize: 24, 
-    marginBottom: 20
-  },  
-  countdownCircle: { 
-    width: 200, 
-    height: 200, 
-    borderRadius: 100, 
-    backgroundColor: "lightblue",
-    justifyContent: 'center', 
-    alignItems: 'center'
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
   },
-  countdownText: { 
-    fontSize: 48, 
-    fontWeight: 'bold' 
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  buttonsContainer: { 
-    flexDirection: 'row', 
-    marginTop: 20
+  countdownCircle: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    backgroundColor: 'lightblue',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  button: { 
-    marginHorizontal: 20, 
-    padding: 10, 
-    backgroundColor: "lightgray",
-    borderRadius: 5
+  countdownText: {
+    fontSize: 48,
+    fontWeight: 'bold',
   },
-  buttonText: { 
-    fontSize: 18 
+  buttonsContainer: {
+    flexDirection: 'column',
+    marginTop: 20,
   },
-}) 
+  button: {
+    marginHorizontal: 20,
+    padding: 10,
+    backgroundColor: 'lightgray',
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  buttonText: {
+    fontSize: 18,
+    textAlign: 'center',
+  },
+});
 
 export default Countdown;
